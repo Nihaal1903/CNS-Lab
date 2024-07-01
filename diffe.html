@@ -1,0 +1,30 @@
+<!DOCtype html>
+<html>
+    <head>
+        <title>Diffe Hellman Key exvhange</title>
+    </head>
+    <body>
+        <script>
+            function power(a,b,P){
+                if(b==1)
+                  return a;
+                return ((Math.pow(a,b))%P);
+            }
+            var P,G,X,Y,a,b,KA,KB;
+            P = parseInt(prompt("Enter prime no. P"));
+            G = parseInt(prompt("Enter primitive root G"));
+            a = parseInt(prompt("Enter private key of Alice"));
+            X = power(G,a,P);
+            b = parseInt(prompt("Enter private key of Bob"));
+            Y = power(G,b,P);
+            KA = power(Y,a,P);
+            KB = power(X,b,P);
+            document.write("Prime no. P: "+P+"<br>");
+            document.write("Primitive root G: "+G+"<br>");
+            document.write("Private key of Alice: "+a+"<br>");
+            document.write("Private key of Bob: "+b+"<br>");
+            document.write("Secret key shared with Alice: "+KA+"<br>");
+            document.write("Secret key shared with Bob: "+KB+"<br>");
+        </script>
+    </body>
+</html>
