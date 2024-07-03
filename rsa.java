@@ -38,7 +38,7 @@ public class rsa {
     static int gcd(int z,int e){
         if(e==0)
           return z;
-        gcd(z%e,e);
+        gcd(e,z%e);
         return 1;
     }
 }
